@@ -1,0 +1,9 @@
+<div>
+    <input [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search products" />
+    <div *ngFor="let product of filteredProducts">
+      <p>{{ product.name }} - {{ product.price | currency }}</p>
+      <button (click)="addToCart(product)">Add to Cart</button>
+    </div>
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <button (click)="onPageChange(currentPage + 1)">Next</button>
+  </div>
